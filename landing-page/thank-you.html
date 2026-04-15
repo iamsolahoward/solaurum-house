@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're in — Solaurum House</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #0D0A14;
+      --gold:  #E8B84B;
+      --text:  #E8E4DC;
+      --muted: #8B8278;
+      --border: rgba(232, 184, 75, 0.15);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 560px;
+      text-align: center;
+    }
+
+    .wordmark {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 48px;
+      display: block;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+      margin: 0 auto 48px;
+      border: none;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1.4em;
+    }
+
+    p:last-of-type { margin-bottom: 0; }
+
+    .next-step {
+      margin-top: 48px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+
+    .next-step .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .next-step p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      border-radius: 2px;
+      color: var(--bg);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      padding: 14px 28px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: #f0c55a; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <span class="wordmark">Solaurum House</span>
+
+    <hr class="rule" />
+
+    <h1>You're in.<br><em>Check your inbox.</em></h1>
+
+    <p>
+      Email 1 is on its way — a quick note from Sola
+      before the real work begins.
+    </p>
+    <p>
+      Over the next ten days you'll see all seven patterns,
+      named from the inside. Read each one slowly.
+      Something will click.
+    </p>
+
+    <div class="next-step">
+      <span class="label">While you wait</span>
+      <p>
+        Take the Survival OS Audit. Ten minutes.
+        It will name the pattern running loudest in your life right now.
+      </p>
+      <a href="https://tinyurl.com/Survival-OS-Audit" class="btn-primary">
+        Take the Audit →
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>

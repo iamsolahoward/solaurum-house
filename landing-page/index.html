@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solaurum House — You're Not Broken. You're Running Outdated Software.</title>
+  <meta name="description" content="The Sovereign OS framework names the survival patterns running your life — and shows you how to rewrite them. Join the Solaurum House inner circle." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0D0A14;
+      --bg-card:  #13101E;
+      --gold:     #E8B84B;
+      --gold-dim: #B8903A;
+      --text:     #E8E4DC;
+      --muted:    #8B8278;
+    --readable: #C8C2B8;
+      --border:   rgba(232, 184, 75, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 40px 0 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+
+    .wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 48px 0 36px;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--readable);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 0;
+    }
+
+    /* ── Divider ── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* ── Body copy ── */
+    .prose p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1.5em;
+    }
+
+    .prose p:last-child { margin-bottom: 0; }
+
+    .prose strong {
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+
+    /* ── Opt-in card ── */
+    .optin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 40px 32px;
+      margin: 36px 0;
+      text-align: center;
+    }
+
+    .optin-card .card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .optin-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .optin-card .card-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--readable);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+
+    /* ── Native form styles (active when Bento embed is present) ── */
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(232, 184, 75, 0.25);
+      border-radius: 2px;
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      padding: 14px 18px;
+      width: 100%;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder { color: var(--muted); }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: rgba(232, 184, 75, 0.6);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      border: none;
+      border-radius: 2px;
+      color: var(--bg);
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      padding: 16px 32px;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background: #f0c55a;
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Secondary CTA ── */
+    .secondary-cta {
+      text-align: center;
+      padding: 0 0 56px;
+    }
+
+    .secondary-cta p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--readable);
+      margin-bottom: 16px;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      padding: 12px 28px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--text);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--gold); }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .hero { padding: 32px 0 24px; }
+      .rule { margin: 24px 0; }
+      .optin-card { padding: 28px 20px; margin: 24px 0; }
+      .prose p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <p class="wordmark">Solaurum House</p>
+    </header>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <p class="hero-label">Sovereign OS Framework</p>
+      <h1>You're not broken.<br><em>You're running outdated software.</em></h1>
+      <p class="hero-sub">
+        The patterns keeping you stuck aren't character flaws.
+        They were intelligent adaptations — built to protect you
+        when you needed protecting. The problem is they're still running.
+      </p>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- ── BODY COPY ── -->
+    <section class="prose">
+      <p>
+        Every smart, capable person I've ever worked with carries some version of the same thing:
+        a set of survival patterns so well-built, so thoroughly rewarded, that they stopped
+        being able to see them.
+      </p>
+      <p>
+        <strong>You can't rewrite what you can't read.</strong>
+      </p>
+      <p>
+        That's what the Sovereign OS framework is for. Not endless excavation.
+        Not permanent processing. A finite arc from survival to sovereignty —
+        with a clear path and someone who's already walked it beside you.
+      </p>
+    </section>
+
+    <!-- ── CTA ── -->
+    <div class="optin-card" id="join">
+      <p class="card-label">Free · Ten minutes</p>
+      <h2>Find out which pattern<br>is running your life.</h2>
+      <p class="card-sub">
+        Enter your name and email and we'll take you straight to the Audit.
+        Your results — and what to do with them — will be waiting in your inbox.
+      </p>
+      <form
+        action="https://track.bentonow.com/forms/532176c6ddbf91263b28b7866315f925/%24subscribe?hardened=true"
+        method="POST"
+        enctype="multipart/form-data"
+        onkeydown="if(event.keyCode===13){event.preventDefault();this.requestSubmit ? this.requestSubmit() : this.submit();}">
+        <input type="hidden" name="redirect" value="https://tinyurl.com/Survival-OS-Audit" />
+        <div class="form-row">
+          <input type="text" name="fields_first_name" placeholder="First name" required />
+          <input type="email" name="email" placeholder="Email address" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" />
+        </div>
+        <button type="submit" class="btn-primary">Take the Survival OS Audit →</button>
+      </form>
+      <p class="form-note">No noise. Unsubscribe anytime.</p>
+    </div>
+
+  </div><!-- /container -->
+
+  <footer>
+    <div class="container">
+      <p>
+        © 2026 Solaurum House &nbsp;·&nbsp;
+        <a href="mailto:sola@solaurumhouse.com">sola@solaurumhouse.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://app.bentonow.com/modules/form-sniffer.js" async defer></script>
+</body>
+</html>
