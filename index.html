@@ -300,15 +300,10 @@
         Enter your name and email and we'll take you straight to the Audit.
         Your results — and what to do with them — will be waiting in your inbox.
       </p>
-      <form
-        action="https://track.bentonow.com/forms/532176c6ddbf91263b28b7866315f925/%24subscribe"
-        method="POST"
-        enctype="multipart/form-data"
-        onkeydown="if(event.keyCode===13){event.preventDefault();this.requestSubmit ? this.requestSubmit() : this.submit();}">
-        <input type="hidden" name="redirect" value="https://solaurumhouse.com/survival-os-audit/" />
+      <form id="subscribe-form" onsubmit="handleSubscribe(event)">
         <div class="form-row">
-          <input type="text" name="fields_first_name" placeholder="First name" required />
-          <input type="email" name="email" placeholder="Email address" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" />
+          <input type="text" id="first-name" placeholder="First name" required />
+          <input type="email" id="email" placeholder="Email address" required />
         </div>
         <button type="submit" class="btn-primary">Take the Survival OS Audit →</button>
       </form>
@@ -326,5 +321,26 @@
     </div>
   </footer>
 
+  <script>
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const name  = document.getElementById('first-name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!email) return;
+
+      const formData = new FormData();
+      formData.append('fields_first_name', name);
+      formData.append('email', email);
+      formData.append('redirect', 'https://solaurumhouse.com/survival-os-audit/');
+
+      fetch('https://track.bentonow.com/forms/532176c6ddbf91263b28b7866315f925/%24subscribe', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+
+      window.location.href = 'https://solaurumhouse.com/survival-os-audit/';
+    }
+  </script>
 </body>
 </html>
